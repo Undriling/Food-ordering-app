@@ -1,0 +1,89 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid grey; */
+    background-color: rgb(225, 221, 221);
+    /* border-radius: 5px; */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    height: 70px;
+    /* flex-wrap: wrap; */
+}
+
+.logo-container{
+    display: flex;
+    cursor: pointer;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+
+.nav-items ul{
+    display: flex;
+    list-style-type: none;
+    margin: 20px 10px;
+    padding: 10px;
+    font-size: 17px;
+}
+.nav-items ul li{
+    margin: 0 5px;
+    padding: 0 10px;
+}
+.nav-items ul li:hover{
+    color: darkblue;
+    cursor: pointer;
+}
+.card-container{
+    padding: 5px;
+    margin: 15px;
+    width: 270px;
+    margin: 30px 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #d4ecff;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+.card-container:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #bebdbd;
+    background-color: #f9fdff;
+    transform: translateY(-2px);
+}
+
+.card-container img{
+    width: 250px;
+    height: 200px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.restro-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter{
+    margin-top: 90px;
+    margin-left: 20px;
+}
+.filter .filter-btn{
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 550;
+    border-style: none;
+    background-color: rgb(238, 149, 149);
+    border-radius: 20px;
+    height: 30px;
+}
+.filter .filter-btn:hover{
+    background-color: aqua;
+    cursor: pointer;
+}

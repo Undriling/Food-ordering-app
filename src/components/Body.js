@@ -18,6 +18,7 @@ const Body = () => {
                         (res) => res.info.avgRating > 4.5
                     );
                  setListOfRestro(filteredRestroData);
+                //  console.log(filteredRestroData)
                 }
             }>Top Rated Restaurants</button>
         </div>

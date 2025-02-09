@@ -97,7 +97,7 @@ const restroList = [
                     "name": "Taco Bell",
                     "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/12/4/d9cc44bd-1446-4241-829e-3342e4201c91_561072.JPG",
                     "locality": "GS Road",
-                    "areaName": "GS Road",
+                    "areaName": "Guwahati",
                     "costForTwo": "₹300 for two",
                     "cuisines": [
                         "Mexican",

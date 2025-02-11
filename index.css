@@ -33,13 +33,25 @@
     font-size: 17px;
 }
 .nav-items ul li{
-    margin: 0 5px;
-    padding: 0 10px;
+    margin: 0 5px; 
+    padding: 0 10px; 
 }
 .nav-items ul li:hover{
     color: darkblue;
     cursor: pointer;
 }
+.nav-items ul button{
+    border-style: none;
+    /* background: none; */
+    background-color: #f0f0f0;
+    font-weight: 500;
+    border-radius: 30px;
+}
+.nav-items ul .login{
+    background-color: #f0f0f0;
+    border-radius: 30px;
+}
+
 .card-container{
     padding: 5px;
     margin: 10px;
@@ -71,7 +83,7 @@
 }
 
 .filter{
-    margin-top: 90px;
+    margin-top: 113px;
     margin-left: 20px;
 }
 .filter .filter-btn{
@@ -80,10 +92,67 @@
     font-weight: 550;
     border-style: none;
     background-color: rgb(238, 149, 149);
-    border-radius: 20px;
+    border-radius: 50px;
     height: 30px;
 }
 .filter .filter-btn:hover{
     background-color: aqua;
+    cursor: pointer;
+}
+
+/* For Shimmer UI */
+/* .shimmer-cont{
+    display: flex;
+    flex-wrap: wrap;
+} */
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    margin-left: 20px;
+    width: 260px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #d9dcdc;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.find-ele{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.find-ele input{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+    padding: 5px;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15;
+}
+
+.search{
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.search-btn{
+    border-style: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: large;
+    background-color: white;
+}
+.search-btn:hover{
+    background-color: #f0f0f0;
     cursor: pointer;
 }

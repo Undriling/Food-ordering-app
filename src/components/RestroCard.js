@@ -24,7 +24,7 @@ const RestroCard = (props) => {
             <h4>{avgRating}⭐</h4>
             <h4>{cuisines.join(",")}</h4>
             <h4>{costForTwo}</h4>
-            <h4>{restroData.info.sla.deliveryTime} minutes</h4>
+            <h4>{restroData.info.sla.deliveryTime} minutes away</h4>
 
             {/* <button className="order-btn" onClick={()=> restroData.info.link}>Order Now</button> */}
             

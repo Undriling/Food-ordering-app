@@ -42,7 +42,7 @@ const Body = () => {
         <div className="find-ele">
 
             <div className="search">
-                <input type="text" placeholder="e.g Restronames" value={searchText} onChange={(a) => {
+                <input type="text" placeholder="e.g. kfc" value={searchText} onChange={(a) => {
                     setSearchText(a.target.value);
                     
                 }}/>

@@ -156,3 +156,20 @@
     background-color: #f0f0f0;
     cursor: pointer;
 }
+
+/* For contact us page */
+.contact-container{
+    margin: 90px 0;
+    justify-items: center;
+}
+
+/* For about us page */
+.about-container{
+    margin: 90px 0;
+    justify-items: center;
+}
+
+/* For Error page */
+.error-container{
+    justify-items: center;
+}

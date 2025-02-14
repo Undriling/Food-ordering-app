@@ -2,6 +2,9 @@ import RestroCard from "./RestroCard";
 // import restroList from "../utils/mockRestroData";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
+import { fetchRestro_API } from "../utils/constants";
+import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -13,11 +16,12 @@ const Body = () => {
 
 
     useEffect(() => {
+        console.log(listOfRestro)
         fetchData();
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.1157917&lng=91.7085933&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch (fetchRestro_API);
         const json = await data.json();
 
         console.log(json)
@@ -25,16 +29,16 @@ const Body = () => {
         //optional chaining
         setListOfRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
-
     };
 
 
-    // conditional rendering
-    // if (listOfRestro.length == 0 ){
-    //     return (<Shimmer />)
-    // }
+    const onlineStatus = useOnlineStatus();
 
+    if (onlineStatus === false) return (
+        <div className="online-status">
+            <h1> Looks like you're offline !!! Please check your internet connection</h1>
+        </div>
+    );
 
     return listOfRestro.length == 0 ? (<Shimmer />) : (
 
@@ -60,11 +64,11 @@ const Body = () => {
                 <button className="filter-btn"
                     onClick={() => {
                         const filteredRestroData = listOfRestro.filter(
-                            (res) => res.info.avgRating > 4
-                        );
+                            (res) => res.info.avgRating >= 4.5
+                        )
                     setListOfRestro(filteredRestroData);
                     //  console.log(filteredRestroData)
-                    }
+                }
                 }>Top Rated Restaurants</button>
             </div>
 
@@ -73,7 +77,10 @@ const Body = () => {
         <div className="restro-container">
             { 
                 filteredRestro.map((restaurant) => (
-                    <RestroCard key={restaurant.info.id} restroData= {restaurant} />
+                    <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}>
+                        <RestroCard restroData= {restaurant} />
+                    </Link>
+                    
             ))};
             {/* <RestroCard restroData={restroList}/> */}
         </div>

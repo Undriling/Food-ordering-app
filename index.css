@@ -168,8 +168,78 @@
     margin: 90px 0;
     justify-items: center;
 }
+.userCard-container{
+    padding: 5px;
+    margin: 10px;
+    width: 170px;
+    margin: 30px 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #d4ecff;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.userCard-container:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #bebdbd;
+    background-color: #f9fdff;
+    transform: translateY(-2px);
+}
+.user-card button{
+    width: 70px;
+    height: 30px;
+    font-size: medium;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 5px;
+    background-color:  rgb(203, 203, 210);
+    border-style: none;
+}
+.user-card button:hover{
+    border-style: groove;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
 
 /* For Error page */
 .error-container{
+    justify-items: center;
+}
+
+/* For restro menu page */
+.rsetromenu-container{
+    margin: 80px 20px;
+    padding: 10px;
+}
+.menuRName-cont{
+    display: flex;
+    flex-wrap: wrap;
+}
+.menuRRating{
+    padding: 50px 100px;
+}
+.Menu{
+    margin-top: 5px;
+    margin-left: 160px;
+}
+.menuItems{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+.menuItems ul li{
+    list-style: none;
+    padding: 10px 0;
+}
+.menuItemsRatings{
+    padding: -20px -5px ;
+}
+
+/* For Online status page */
+.online-status{
+    margin: 90px 0;
     justify-items: center;
 }

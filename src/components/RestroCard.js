@@ -1,5 +1,6 @@
 import { CDN_URL } from "../utils/constants";
 import restroList from "../utils/mockRestroData";
+
 // import Body from "./Body";
 
 const RestroCard = (props) => {
@@ -7,12 +8,10 @@ const RestroCard = (props) => {
 
     const {name,avgRating, locality, areaName, costForTwo, cloudinaryImageId, cuisines} = restroData?.info;
 
-    const orderLink = (link) => {
-        window.open(restroData.cta.link, '_blank');
-    }
+    // Order click fnc
 
     return (
-        <div className="card-container" key={restroData.info.id} onClick={()=> orderLink()}>
+        <div className="card-container">
             <img className="restro-logo" src={CDN_URL +cloudinaryImageId}/>
             <h2>{name}</h2>
             <h3>{locality}, {areaName}</h3>
@@ -25,10 +24,6 @@ const RestroCard = (props) => {
             <h4>{cuisines.join(",")}</h4>
             <h4>{costForTwo}</h4>
             <h4>{restroData.info.sla.deliveryTime} minutes away</h4>
-
-            {/* <button className="order-btn" onClick={()=> restroData.info.link}>Order Now</button> */}
-            
-            
         </div>
     );
 };

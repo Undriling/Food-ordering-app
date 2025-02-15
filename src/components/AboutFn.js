@@ -20,7 +20,6 @@ const User = (props) => {
     return (
 
         <div className="user-card">
-            {/* <img src={userInfo?.avatar_url}/> */}
             <h2 className="font-medium p-[5px] text-lg font-serif">{userInfo?.login}</h2>
             <h3 className="font-medium p-[5px] text-lg font-serif">{userInfo?.name} </h3>
             <h3 className="font-medium p-[5px] text-lg font-serif">Loaction: {userInfo?.location}</h3>

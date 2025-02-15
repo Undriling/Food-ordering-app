@@ -1,10 +1,10 @@
 import RestroCard from "./RestroCard";
-// import restroList from "../utils/mockRestroData";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { fetchRestro_API } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { vegLabel } from "./RestroCard";
 
 
 const Body = () => {
@@ -12,6 +12,11 @@ const Body = () => {
     const [listOfRestro, setListOfRestro] = useState([]); 
     const [searchText, setSearchText] = useState("");
     const [filteredRestro, setFilteredRestro] = useState([]);
+
+    const WithVegLabel = vegLabel(RestroCard);
+
+
+    console.log(listOfRestro)
     // const [filteredCuisines, setFilteredCuisines] = useState([]);
 
 
@@ -30,7 +35,6 @@ const Body = () => {
         setListOfRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
-
 
     const onlineStatus = useOnlineStatus();
 
@@ -52,7 +56,7 @@ const Body = () => {
                 }}/>
                 <button className="search-btn border-none rounded-[50%] h-10 w-10 text-lg bg-white hover:bg-[#f0f0f0] cursor-pointer" onClick={() => {
                     const filteredRestro = listOfRestro.filter(
-                        (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                        (res) => res?.info?.name.toLowerCase()?.includes(searchText.toLowerCase())
                     );
                 
                     setFilteredRestro(filteredRestro);
@@ -63,10 +67,10 @@ const Body = () => {
             <div className="mt-[113px] ml-[20px]">
                 <button className="filter-btn font-medium font-serif border-none bg-[rgb(238,149,149)] rounded-[40px] h-[35px] w-52 hover:bg-[aqua] cursor-pointer"
                     onClick={() => {
-                        const filteredRestroData = listOfRestro.filter(
-                            (res) => (res?.info?.avgRating) > 4.5
+                        const filteredRestroData = listOfRestro?.filter(
+                            (res) => res?.info?.avgRating > 4.5
                         )
-                    setListOfRestro(filteredRestroData);
+                        setFilteredRestro(filteredRestroData);
                     //  console.log(filteredRestroData)
                 }
                 }>Top Rated Restaurants</button>
@@ -78,7 +82,9 @@ const Body = () => {
             { 
                 filteredRestro.map((restaurant) => (
                     <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}>
-                        <RestroCard restroData= {restaurant} />
+                        { restaurant.info.isOpen ? <WithVegLabel restroData= {restaurant}/> :
+                            <RestroCard restroData= {restaurant} />
+                        }
                     </Link>
                     
             ))};

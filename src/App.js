@@ -10,7 +10,7 @@ import RestroMenu from "./components/RestroMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Shimmer from "./components/shimmer";
 
-
+// This is lazy loading
 const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
     return (

@@ -4,9 +4,9 @@ const About = () => {
 
 
     return (
-        <div className="about-container">
-            <h1>About US</h1>
-            <div className='userCard-container'>
+        <div className="my-[90px] justify-items-center">
+            <h1 className="font-medium text-4xl font-serif">About US</h1>
+            <div className="userCard-container w-52 p-1.5 m-2.5 my-[30px] mx-4 rounded-2xl shadow-[0_0_3px_#d4ecff] bg-[#fff] overflow-hidden ease-[all-(0.2s)-ease] hover:shadow-[2px_2px_5px_#bebdbd] cursor-pointer bg-white-#f9fdff translate-y-[-2px]">
                 <User name={"Undriling"} location={"Guwahati, Assam"} contact={"abc@gmail.com"}/>
             </div>
         </div>

@@ -1,0 +1,252 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid grey; */
+    background-color: rgb(225, 221, 221);
+    /* border-radius: 5px; */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    height: 70px;
+    /* flex-wrap: wrap; */
+}
+
+.logo-container{
+    display: flex;
+    cursor: pointer;
+}
+
+.logo{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+}
+
+.nav-items ul{
+    display: flex;
+    list-style-type: none;
+    margin: 20px 10px;
+    padding: 10px;
+    font-size: 17px;
+}
+.nav-items ul li{
+    margin: 0 5px; 
+    padding: 0 10px; 
+}
+.nav-items ul li:hover{
+    color: darkblue;
+    cursor: pointer;
+}
+
+.nav-items ul button{
+    border-style: none;
+    /* background: none; */
+    background-color: #f0f0f0;
+    font-weight: 500;
+    border-radius: 30px;
+}
+.nav-items ul .login{
+    background-color: #f0f0f0;
+    border-radius: 30px;
+}
+
+
+
+.card-container{
+    padding: 5px;
+    margin: 10px;
+    width: 260px;
+    margin: 30px 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #d4ecff;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+.card-container:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #bebdbd;
+    background-color: #f9fdff;
+    transform: translateY(-2px);
+}
+
+.card-container img{
+    width: 250px;
+    height: 200px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.restro-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter{
+    margin-top: 113px;
+    margin-left: 20px;
+}
+.filter .filter-btn{
+    font-size: medium;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 550;
+    border-style: none;
+    background-color: rgb(238, 149, 149);
+    border-radius: 50px;
+    height: 30px;
+}
+.filter .filter-btn:hover{
+    background-color: aqua;
+    cursor: pointer;
+}
+/*  */
+/* For Shimmer UI */
+/* .shimmer-cont{
+    display: flex;
+    flex-wrap: wrap;
+} */
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    margin-left: 20px;
+    width: 260px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #d9dcdc;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+/*  */
+.find-ele{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.find-ele input{
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border-style: none;
+    padding: 5px;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15;
+}
+
+.search{
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.search-btn{
+    border-style: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: large;
+    background-color: white;
+}
+.search-btn:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+/*  */
+
+/* For contact us page */
+.contact-container{
+    margin: 90px 0;
+    justify-items: center;
+}
+/*  */
+
+/* For about us page */
+.about-container{
+    margin: 90px 0;
+    justify-items: center;
+}
+
+.userCard-container{
+    padding: 5px;
+    margin: 10px;
+    width: 170px;
+    margin: 30px 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #d4ecff;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.userCard-container:hover{
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #bebdbd;
+    background-color: #f9fdff;
+    transform: translateY(-2px);
+}
+.user-card button{
+    width: 70px;
+    height: 30px;
+    font-size: medium;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 5px;
+    background-color:  rgb(203, 203, 210);
+    border-style: none;
+}
+.user-card button:hover{
+    border-style: groove;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+/*  */
+
+/* For Error page */
+.error-container{
+    justify-items: center;
+}
+/*  */
+/* For restro menu page */
+.rsetromenu-container{
+    margin: 80px 20px;
+    padding: 10px;
+}
+.menuRName-cont{
+    display: flex;
+    flex-wrap: wrap;
+}
+.menuRRating{
+    padding: 50px 100px;
+}
+.Menu{
+    margin-top: 5px;
+    margin-left: 160px;
+}
+.menuItems{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+.menuItems ul li{
+    list-style: none;
+    padding: 10px 0;
+}
+.menuItemsRatings{
+    padding: -20px -5px ;
+}
+
+/* For Online status page */
+.online-status{
+    margin: 90px 0;
+    justify-items: center;
+}

@@ -1,51 +1,66 @@
 import Shimmer from "./shimmer";
 import { useParams } from "react-router";
 import useRestroMenu from "../utils/useRestroMenu";
-
+import RestroCategory from "./RestroCategory";
+import { useState } from "react";
 const RestroMenu = () => {
 
     const {resId} = useParams();
 
     const restroInfo = useRestroMenu(resId);
 
+    const [showItemsIndex, setShowItemsIndex] = useState(null);
+
      
     if (restroInfo == null) return (<Shimmer/>);
 
     const {id, name, areaName, avgRating, totalRatingsString, city, cuisines, costForTwoMessage } = restroInfo?.cards[2]?.card?.card?.info;
     const groupedCard = restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards;
+
+    console.log(restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+    const categories = restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
+        c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
+    // console.log(categories)
+
+    const toggleShowItemsIndex = (index) => {
+        setShowItemsIndex(showItemsIndex === index ? null : index);
+      };
     
 
     return (
 
-        <div className="rsetromenu-container my-20 mx-5 p-2.5">
+        <div className="my-20 justify-items-center align-middle">
 
-            <div className="menuRName-cont flex flex-wrap" key={id}>
-                <div className="font-bold p-[5px] text-2xl font-serif">
+            <div className="flex flex-wrap" key={id}>
+                <div className="font-bold p-[5px] text-2xl font-serif ">
                     <h1 className="font-bold p-[5px] text-3xl font-serif">{name}</h1>
                     <h3>{areaName}, {city}</h3>
                     <h3>{cuisines.join(", ")}</h3>
                     <h3>{costForTwoMessage}</h3>
                 </div>
-                <div className="menuRRating py-[50px] px-[100px] justify-items-center font-bold p-[5px] text-2xl font-serif">
+                <div className="menuRRating py-[40px] ml-[50px]  justify-items-center font-bold p-[5px] text-2xl font-serif">
                     <h2>{avgRating} ⭐</h2>
-                    <h3>{totalRatingsString}</h3>
+                    <h3 className="mt-4">{totalRatingsString}</h3>
                 </div>
             </div>
 
-            <h3 className="Menu mt-1.5 ml-40 font-medium text-xl font-serif">MENU</h3>
-
-            <div className="menuItems flex flex-wrap py-2.5">
-                <ul>
-                    {(groupedCard || []).map((item) => (
-                        <li className="list-none py-2.5 font-medium p-[5px] text-lg font-serif" key={item?.info?.id}>{item?.card?.info?.name}  ({item?.card?.info?.category})   <b> - </b></li>
-                    ))} 
-                </ul>
-                <ul>
-                    {(groupedCard || []).map((item) => (
-                            <li className="list-none py-2.5 ml-7 font-medium p-[5px] text-lg font-sans" key={item?.info?.id}>{item?.card?.info?.defaultPrice / 100 || item?.card?.info?.price / 100}.00</li>
-                        ))} 
-                </ul>
-            </div>
+            <h3 className="my-3 font-bold text-2xl font-serif">MENU</h3>
+            {
+                categories.map((category,index) => (
+                    <RestroCategory data={category?.card?.card}
+                    showItems={index === showItemsIndex ? true : false}
+                    // setShowItemsIndex={() => setShowItemsIndex()}
+                    onClick={() => toggleShowItemsIndex(index)}
+                    />
+    
+                ))
+            
+            }
+               
+            {/* <div className="menuItems flex flex-wrap py-2.5"></div> */}
 
         </div>
     );

@@ -15,7 +15,7 @@ const RestroMenu = () => {
     if (restroInfo == null) return (<Shimmer/>);
 
     const {id, name, areaName, avgRating, totalRatingsString, city, cuisines, costForTwoMessage } = restroInfo?.cards[2]?.card?.card?.info;
-    const groupedCard = restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards;
+    // const groupedCard = restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards;
 
     console.log(restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
@@ -43,7 +43,7 @@ const RestroMenu = () => {
                 </div>
                 <div className="menuRRating py-[40px] ml-[50px]  justify-items-center font-bold p-[5px] text-2xl font-serif">
                     <h2>{avgRating} ⭐</h2>
-                    <h3 className="mt-4">{totalRatingsString}</h3>
+                    <h3 className="mt-4 font-sans">{totalRatingsString}</h3>
                 </div>
             </div>
 

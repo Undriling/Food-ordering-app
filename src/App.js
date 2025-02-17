@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 // Default Import
 import Header from "./components/Header";
@@ -9,14 +9,27 @@ import Error from "./components/Error";
 import RestroMenu from "./components/RestroMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Shimmer from "./components/shimmer";
+import UserContext from "./utils/UserContext";
 
 // This is lazy loading
 const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
+
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const data = {
+            name: "M.B."
+        }
+        setUserName(data.name)
+    }, [])
+
     return (
         <div className="app">
-            <Header />
-            <Outlet />
+            <UserContext.Provider value={{loggedInUser : userName}}>
+                <Header />
+                <Outlet />
+            </UserContext.Provider>
         </div>
     );
 };

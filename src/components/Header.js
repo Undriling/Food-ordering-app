@@ -3,10 +3,14 @@ import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 const Header = () => {
 
     const [loginBtn, setLoginBtn] = useState("Login⛄");
+
+    const {loggedInUser} = useContext(UserContext);
 
     const onlineStatus = useOnlineStatus();
 
@@ -30,7 +34,7 @@ const Header = () => {
                     <li className="mx-1.5 px-2.5">🛒</li>
                     <div className="login bg-[#f0f0f0] rounded-[20px]  justify-items-center">
                         <button className="border-none bg-[#f0f0f0] w-20 font-normal rounded-[20px]"  onClick={() =>
-                            loginBtn == "Login⛄" ? setLoginBtn("Logout") : setLoginBtn("Login⛄")
+                            loginBtn == "Login⛄" ? setLoginBtn(loggedInUser) : setLoginBtn("Login⛄")
                         } >{loginBtn}</button>
                     </div>
                 </ul>

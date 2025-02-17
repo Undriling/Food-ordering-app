@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { github_User_API } from "../utils/constants";
 import { Link } from "react-router";
+import UserContext from "../utils/UserContext";
 const User = (props) => {
 
     const [userInfo, setUserInfo] = useState();
+
+    const {loggedInUser} = useContext(UserContext);
 
     useEffect (() => {
         fetchUser()
@@ -22,6 +25,7 @@ const User = (props) => {
         <div className="user-card">
             <h2 className="font-medium p-[5px] text-lg font-serif">{userInfo?.login}</h2>
             <h3 className="font-medium p-[5px] text-lg font-serif">{userInfo?.name} </h3>
+            <h3 className="font-medium p-[5px] text-lg font-serif">User :- {loggedInUser} </h3>
             <h3 className="font-medium p-[5px] text-lg font-serif">Loaction: {userInfo?.location}</h3>
             <h4 className="font-medium p-[5px] text-lg font-serif hover:text-blue-600 hover:cursor-pointer"><Link to={window.open(userInfo?.blog , "_blank")}>TO MY PORTFOLIO</Link></h4>
             <button className="w-[70px] h-[30px] font-medium font-[Times New Roman] rounded-[5px] bg-[rgb(203,203,210)] border-none hover:border-[groove] hover:rounded-[10px] hover:bg-[#f0f0f0] hover:cursor-pointer" onClick={() => { window.open(userInfo.html_url, '_blank') }}>.github</button>

@@ -175,5 +175,3 @@ In cartSlice.js---
                 Total: ₹ {cartTotal.toFixed(2)}
     </h2>)}
 
-
-

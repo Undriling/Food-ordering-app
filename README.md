@@ -35,8 +35,10 @@
         -> ./utils/appStore.js ---
 
 * Functionalities --
+    - Show online status .
     - Item Search .
     - Button to show Top rated restros .
+    - Veg label .
     - Menu .
     - Cart .
         - When we reload that data will not remove from the cart, the data should stores in both      React state (Redux) and the Local Storage. And when we clear that data will remove from the both .

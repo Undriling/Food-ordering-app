@@ -36,6 +36,7 @@
 
 * Functionalities --
     - Show online status .
+    - Login - Logout .
     - Item Search .
     - Button to show Top rated restros .
     - Veg label .

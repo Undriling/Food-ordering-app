@@ -15,7 +15,7 @@ const useRestroList = () => {
         const data = await fetch (fetchRestro_API);
         const json = await data.json();
 
-        console.log(json)
+        // console.log(json)
 
         //optional chaining
         setListOfRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);

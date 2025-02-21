@@ -10,6 +10,9 @@ import RestroMenu from "./components/RestroMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import Shimmer from "./components/shimmer";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 // This is lazy loading
 const About = lazy(() => import("./components/About"));
@@ -26,10 +29,12 @@ const AppLayout = () => {
 
     return (
         <div className="app">
-            <UserContext.Provider value={{loggedInUser : userName}}>
-                <Header />
-                <Outlet />
-            </UserContext.Provider>
+            <Provider store={appStore}>
+                <UserContext.Provider value={{loggedInUser : userName}}>
+                    <Header />
+                    <Outlet />
+                </UserContext.Provider>
+            </Provider>
         </div>
     );
 };
@@ -54,7 +59,11 @@ const appRouter = createBrowserRouter ([
             {
                 path: "/restaurant/:resId",
                 element: <RestroMenu />,
-            }
+            },
+            {
+                path: "/Cart",
+                element: <Cart />,
+            },
         ],
         errorElement: <Error />
     },

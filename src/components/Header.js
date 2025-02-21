@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -13,6 +14,8 @@ const Header = () => {
     const {loggedInUser} = useContext(UserContext);
 
     const onlineStatus = useOnlineStatus();
+
+    const cartItems = useSelector((store) => store.cart.items)
 
     return (
         <div className="flex justify-between bg-[rgb(225,221,221)] w-[100%] fixed top-0 right-0 left-0 z-99 h-[70px] text-lg font-serif">
@@ -31,9 +34,9 @@ const Header = () => {
                     <li className="mx-1.5 px-2.5 hover:text-blue-700 cursor-pointer "><Link to="/">Home</Link></li>
                     <li className="mx-1.5 px-2.5 hover:text-blue-700 cursor-pointer "><Link to="/about">About Us</Link></li>
                     <li className="mx-1.5 px-2.5 hover:text-blue-700 cursor-pointer "><Link to="/contact">Contact Us</Link></li>
-                    <li className="mx-1.5 px-2.5">🛒</li>
+                    <li className="mx-1.5 px-2.5 cursor-pointer hover:bg-blue-400 rounded-lg"><Link to="/cart">🛒{cartItems.length}</Link></li>
                     <div className="login bg-[#f0f0f0] rounded-[20px]  justify-items-center">
-                        <button className="border-none bg-[#f0f0f0] w-20 font-normal rounded-[20px]"  onClick={() =>
+                        <button className="border-none bg-[#f0f0f0] w-20 font-normal rounded-[20px] cursor-pointer"  onClick={() =>
                             loginBtn == "Login⛄" ? setLoginBtn(loggedInUser) : setLoginBtn("Login⛄")
                         } >{loginBtn}</button>
                     </div>

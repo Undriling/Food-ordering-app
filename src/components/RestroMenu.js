@@ -1,5 +1,5 @@
 import Shimmer from "./shimmer";
-import { useParams } from "react-router";
+import { data, useParams } from "react-router";
 import useRestroMenu from "../utils/useRestroMenu";
 import RestroCategory from "./RestroCategory";
 import { useState } from "react";
@@ -17,7 +17,7 @@ const RestroMenu = () => {
     const {id, name, areaName, avgRating, totalRatingsString, city, cuisines, costForTwoMessage } = restroInfo?.cards[2]?.card?.card?.info;
     // const groupedCard = restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards;
 
-    console.log(restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+    // console.log(restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
     const categories = restroInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
         c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -32,7 +32,7 @@ const RestroMenu = () => {
 
     return (
 
-        <div className="my-20 justify-items-center align-middle">
+        <div className="my-20 justify-items-center align-middle" key={restroInfo?.index}>
 
             <div className="flex flex-wrap" key={id}>
                 <div className="font-bold p-[5px] text-2xl font-serif ">
@@ -49,10 +49,10 @@ const RestroMenu = () => {
 
             <h3 className="my-3 font-bold text-2xl font-serif">MENU</h3>
             {
-                categories.map((category,index) => (
+                categories.map((category, index) => (
                     <RestroCategory data={category?.card?.card}
-                    showItems={index === showItemsIndex ? true : false}
-                    // setShowItemsIndex={() => setShowItemsIndex()}
+                    showItems={showItemsIndex == index ? true : false}
+                    setShowItemsIndex={() => setShowItemsIndex()}
                     onClick={() => toggleShowItemsIndex(index)}
                     />
     
@@ -60,8 +60,6 @@ const RestroMenu = () => {
             
             }
                
-            {/* <div className="menuItems flex flex-wrap py-2.5"></div> */}
-
         </div>
     );
 

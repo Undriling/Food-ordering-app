@@ -3,7 +3,7 @@ import {useRouteError} from 'react-router';
 
 const Error = () => {
     const err = useRouteError();
-    console.log(err)
+    // console.log(err)
     return (
         <div className="justify-items-center">
             <h1 className="my-4 text-5xl">🚨</h1>

@@ -8,8 +8,8 @@ const RestroCard = (props) => {
 
     const {name,avgRating, locality, areaName, costForTwo, cloudinaryImageId, cuisines} = restroData?.info;
 
-    // Order click fnc
-    console.log(restroData.info)
+    
+    // console.log(restroData.info)
 
     return (
         <div className="font-normal font-serif p-[5px] m-[10px] w-[270px] my-[30px] mx-15px rounded-xl shadow-[0_0_3px_#d4ecff] bg-[#fff] overflow-hidden transition-all duration-200 ease-in-out hover:shadow-[2px_2px_5px_#bebdbd] cursor-pointer bg-white-#f9fdff hover:transform -translate-y-1">
@@ -33,7 +33,9 @@ export const vegLabel = (RestroCard) => {
     return (props) => {
         return (
             <div className="mb-[-25px]">
-                <label className="bg-[#f0f0f0] text-green-700 m-2 p-2 rounded-[10px]">Veg Available</label>
+                <div className="mb-[-19px]">
+                    <label className="bg-[#f0f0f0] text-green-700 m-2 p-2 rounded-[10px]">Veg Available</label>
+                </div>
                 <RestroCard {...props}/>
             </div>
         )
